@@ -22,39 +22,40 @@ public class Panel {
 		}
 	}
 	public HashMap[] update_juju(){
-		HashMap<JujuType, Integer> counter = new HashMap<JujuType, Integer>(0);
-		HashMap<String, Integer> num = new HashMap<String, Integer>(0);
+		HashMap<JujuType, Integer> counter = new HashMap<JujuType, Integer>();
+		HashMap<String, Integer> num = new HashMap<String, Integer>();
+		for (JujuType e : JujuType.values()) {
+			counter.put(e, 0);
+			counter.put(e, 0);
+		}
 		HashMap[] result = new HashMap[2];
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {
 				if (panel[i][j] == null) {
 					//do nothing
-				} 
-				else {
-					System.out.println(panel[i][j].getLeft());
+				} else if (panel[i][j].getUp() >=2 ) {
+					
+					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
+					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getUp() + 1);
+					for (int up = i ; up < panel[i][j].getUp(); up++)
+						panel[up][j] = null;
+				} else if (panel[i][j].getDown() >= 2) {
+					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
+					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getDown() + 1);
+					for (int down = i; down < panel[i][j].getDown(); down--)
+						panel[down][j] = null;
+				} else if (panel[i][j].getRight() >=2) {
+					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
+					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getRight() + 1);
+					for (int right = j; right < panel[i][j].getRight(); right++)
+						panel[i][right] = null;
+				} else if (panel[i][j].getLeft() >= 2) {
+					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
+					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getLeft() + 1);
+					for (int left = j; left < panel[i][j].getLeft(); left--)
+						panel[i][left] = null;
+					
 				}
-//				else if (panel[i][j].getUp() >=2 ) {
-//					counter.put(panel[i][i].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
-//					counter.put(panel[i][i].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getUp() + 1);
-//					for (int up = i ; up < panel[i][j].getUp(); up++)
-//						panel[up][j] = null;
-//				} else if (panel[i][j].getDown() >= 2) {
-//					counter.put(panel[i][i].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
-//					counter.put(panel[i][i].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getDown() + 1);
-//					for (int down = i; down < panel[i][j].getDown(); down--)
-//						panel[down][j] = null;
-//				} else if (panel[i][j].getRight() >=2) {
-//					counter.put(panel[i][i].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
-//					counter.put(panel[i][i].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getRight() + 1);
-//					for (int right = j; right < panel[i][j].getRight(); right++)
-//						panel[i][right] = null;
-//				} else if (panel[i][j].getLeft() >= 2) {
-//					counter.put(panel[i][i].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
-//					counter.put(panel[i][i].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getLeft() + 1);
-//					for (int left = j; left < panel[i][j].getLeft(); left--)
-//						panel[i][left] = null;
-//					
-//				}
 			}
 		}
 		result[0] = counter;

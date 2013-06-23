@@ -42,11 +42,7 @@ public class PanelListener implements MouseListener {
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		// do round works!
-		System.out.println("released");
-		List<HashMap<JujuType, Integer>> tmp = p.update_juju();
-		System.out.println(tmp.get(0).get(JujuType.AQUA));
-		System.out.println(tmp.get(1).get(JujuType.AQUA));
-		p.refill();
+		
 		//w.removeAll();
 		//w.remove();
 		
@@ -55,7 +51,11 @@ public class PanelListener implements MouseListener {
 		//w.repaint();
 		//w.setWindow();
 		//w.setVisible(false);
-		
+		System.out.println("released");
+		List<HashMap<JujuType, Integer>> tmp = p.update_juju();
+		System.out.println(tmp.get(0).get(JujuType.AQUA));
+		System.out.println(tmp.get(1).get(JujuType.AQUA));
+		p.refill();
 		Window w = new Window(p);
 		
 		w.setWindow();

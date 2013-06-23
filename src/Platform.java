@@ -117,8 +117,31 @@ public class Platform {
 		else 
 			top = panel[i][j+1];
 		
-		panel[i][j] = new Juju(top, down, left, right);
+		panel[i][j] = new Juju(top, down, left, right, this);
+//		panel[i][j].setPanel(this);
 	}
-	
-	
+	/** release(): release all Jujus in the panel
+	 * called when the mouse is released from one of the Jujus.
+	 */
+	public void release(){
+		for (int i = 0; i < WIDTH; i++) {
+			for (int j = 0; j < HEIGHT; j++) {
+				panel[i][j].isPressed = false;
+			}
+		}		
+	}
+	public JujuPosition getJujuPosition(Juju x){
+		int a = 0;
+		int b = 0;
+		for (int i = 0 ; i < WIDTH; i++){
+		    for(int j = 0 ; j < HEIGHT ; j++){
+		         if ( panel[i][j] == x){
+		        	 a = i;
+		        	 b = j;
+		             break;
+		         }
+		    }		
+		}
+		return new JujuPosition(a,b); 
+	}	
 }

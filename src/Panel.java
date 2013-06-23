@@ -23,7 +23,7 @@ public class Panel {
 	}
 	public HashMap[] update_juju(){
 		HashMap<JujuType, Integer> counter = new HashMap<JujuType, Integer>();
-		HashMap<String, Integer> num = new HashMap<String, Integer>();
+		HashMap<JujuType, Integer> num = new HashMap<JujuType, Integer>();
 		for (JujuType e : JujuType.values()) {
 			counter.put(e, 0);
 			counter.put(e, 0);
@@ -39,28 +39,28 @@ public class Panel {
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getUp() + 1);
 					for (int up = j ; up <= (j + panel[i][j].getUp()); up++) {
 						System.out.println(panel[i][j].getAttr().toString() + i + j + " right side = " + up);
-						panel[i][up] = null;
+						panel[i][up] = new Juju(true);
 					}
 				} else if (panel[i][j].getDown() >= 2) {
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getDown() + 1);
 					for (int down = j; down >= (j - panel[i][j].getDown()); down--) {
 						System.out.println(panel[i][j].getAttr().toString() + i + j + " down side = " + down);
-						panel[i][down] = null;
+						panel[i][down] = new Juju(true);
 					}
 				} else if (panel[i][j].getRight() >=2) {
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getRight() + 1);
 					for (int right = i; right <= (i + panel[i][j].getRight()); right++) {
 						System.out.println(panel[i][j].getAttr().toString() + i + j + " right side = " + right);
-						panel[right][j] = null;
+						panel[right][j] = new Juju(true);
 					}
 				} else if (panel[i][j].getLeft() >= 2) {
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getLeft() + 1);
 					for (int left = i; left >= (i - panel[i][j].getLeft()); left--) {
 						System.out.println(panel[i][j].getAttr().toString() + i + j + "left side = " + left);
-						panel[left][j] = null;
+						panel[left][j] = new Juju(true);
 					}
 						
 					
@@ -74,15 +74,15 @@ public class Panel {
 	public void refill(){
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {
-				if (panel[i][j] == null) {
-					for (int s = j; s < HEIGHT; s++)
+				if (panel[i][j].getAttr() == null) {
+					for (int s = j; s < HEIGHT-1; s++)
 						panel[i][j] = panel[i][j+1];
 				}
 			}
 		}
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {
-				if (panel[i][j] == null) {
+				if (panel[i][j].getAttr() == null) {
 					set_juju(i, j);
 				}
 			}

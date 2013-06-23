@@ -11,7 +11,8 @@ public class Juju {
 		Random random = new Random();
 		setAttr(JujuType.values()[random.nextInt(6)]);
 	}
-
+	Juju(boolean dump) {
+	}
 	Juju(Juju UP, Juju DOWN, Juju LEFT, Juju RIGHT) {
 		Random random = new Random();
 		setAttr(JujuType.values()[random.nextInt(6)]);

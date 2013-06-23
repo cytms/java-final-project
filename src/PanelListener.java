@@ -1,5 +1,6 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.HashMap;
 
 
 public class PanelListener implements MouseListener {
@@ -39,6 +40,8 @@ public class PanelListener implements MouseListener {
 		// do round works!
 		System.out.println("released");
 		p.update_juju();
+		//int counter = (Integer) tmp[0].get(JujuType.AQUA);
+		//int num = (Integer) tmp[1].get(JujuType.AQUA);
 		p.refill();
 		
 	}

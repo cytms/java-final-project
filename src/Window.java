@@ -6,13 +6,25 @@ import javax.swing.*;
 public class Window extends JFrame {
 	public static final int WIDTH = 380;
 	public static final int HEIGHT = 580;
-	public Platform main_panel = new Platform();
+	public Platform main_panel = null;
 	
-	public Window(Color theColor) {
+	public Window(Platform p) {
 		super("Tower of Hanoi");
+		main_panel = p;
 		setSize(WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setBackground(theColor);
+		
+	}
+	
+	public void setWindow() {
+		//System.out.println(main_panel.update_juju().toString());
+		//main_panel.refill();
+		//invalidate();
+		//validate();
+		//this.removeAll();
+		//this.setContentPane(new JFrame());
+		//repaint();
+		
 		setLayout(new GridLayout(2,1));
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(new GridLayout(2,1));
@@ -28,6 +40,7 @@ public class Window extends JFrame {
 			panel_1_2.add(panel_1_2_1);
 			panel_1_2.add(panel_1_2_2);
 		panel_1.add(panel_1_1);
+		//System.out.println(panel_1.getComponents());
 		add(panel_1);
 		
 		JPanel panel_2 = new JPanel();
@@ -45,15 +58,14 @@ public class Window extends JFrame {
 				panel_2.add(label);
 			}
 		}
-		panel_2.addMouseListener(new PanelListener(main_panel));
+		panel_2.addMouseListener(new PanelListener(this));
 		panel_2.addMouseMotionListener(new PanelMouseMotionListener());
 		//panel_down.setSize();
 		add(panel_2);
+		//remove();
+		//add(panel_2);
+		//System.out.println();
 		
-	}
-	public void swap_juju(Juju j1, Juju j2) {
-		Juju tmp = j1;
-		j1 = j2;
-		j2 = tmp;
+		//Window.this.repaint();
 	}
 }

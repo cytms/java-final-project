@@ -5,9 +5,9 @@ import java.util.List;
 
 
 public class PanelListener implements MouseListener {
-	public Panel p = null;
+	public Platform p = null;
 	
-	public PanelListener(Panel panel) {
+	public PanelListener(Platform panel) {
 		p = panel;
 	}
 	

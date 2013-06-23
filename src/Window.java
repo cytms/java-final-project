@@ -6,7 +6,7 @@ import javax.swing.*;
 public class Window extends JFrame {
 	public static final int WIDTH = 380;
 	public static final int HEIGHT = 580;
-	public Panel main_panel = new Panel();
+	public Platform main_panel = new Platform();
 	
 	public Window(Color theColor) {
 		super("Tower of Hanoi");

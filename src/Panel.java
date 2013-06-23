@@ -37,23 +37,32 @@ public class Panel {
 					
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getUp() + 1);
-					for (int up = i ; up < panel[i][j].getUp(); up++)
-						panel[up][j] = null;
+					for (int up = j ; up <= (j + panel[i][j].getUp()); up++) {
+						System.out.println(panel[i][j].getAttr().toString() + i + j + " right side = " + up);
+						panel[i][up] = null;
+					}
 				} else if (panel[i][j].getDown() >= 2) {
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getDown() + 1);
-					for (int down = i; down < panel[i][j].getDown(); down--)
-						panel[down][j] = null;
+					for (int down = j; down >= (j - panel[i][j].getDown()); down--) {
+						System.out.println(panel[i][j].getAttr().toString() + i + j + " down side = " + down);
+						panel[i][down] = null;
+					}
 				} else if (panel[i][j].getRight() >=2) {
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getRight() + 1);
-					for (int right = j; right < panel[i][j].getRight(); right++)
-						panel[i][right] = null;
+					for (int right = i; right <= (i + panel[i][j].getRight()); right++) {
+						System.out.println(panel[i][j].getAttr().toString() + i + j + " right side = " + right);
+						panel[right][j] = null;
+					}
 				} else if (panel[i][j].getLeft() >= 2) {
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
 					counter.put(panel[i][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getLeft() + 1);
-					for (int left = j; left < panel[i][j].getLeft(); left--)
-						panel[i][left] = null;
+					for (int left = i; left >= (i - panel[i][j].getLeft()); left--) {
+						System.out.println(panel[i][j].getAttr().toString() + i + j + "left side = " + left);
+						panel[left][j] = null;
+					}
+						
 					
 				}
 			}

@@ -16,8 +16,8 @@ public class Panel {
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {
 				set_juju(i, j);
-				//while(panel[i][j].getUp() == 2 || panel[i][j].getDown() == 2 || panel[i][j].getLeft() == 2 || panel[i][j].getRight() == 2)
-					//set_juju(i,j);
+				while(panel[i][j].getUp() == 2 || panel[i][j].getDown() == 2 || panel[i][j].getLeft() == 2 || panel[i][j].getRight() == 2)
+					set_juju(i,j);
 			}
 		}
 	}

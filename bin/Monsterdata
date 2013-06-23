@@ -1,0 +1,7 @@
+"Gumdam",300,250,400,JujuType.WOOD,"monster/GUMDAM.jpg"
+"RockmanX",700,455,50,JujuType.AQUA,"monster/ROCKMANX.jpg"
+"Rockman",233,200,250,JujuType.DARK,"monster/ROXKMAN.jpg"
+"Digidragon",200,1000,0,JujuType.LIGHT,"monster/DIGIDRAGON.jpg"
+"Zero",333,540,100,JujuType.FIRE,"monster/ZERO.jpg"
+BAD:
+"Chuin",5000000,999,3,JujuType.LIGHT,"monster/CHUIN.jpg",4

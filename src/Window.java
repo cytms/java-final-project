@@ -13,22 +13,26 @@ public class Window extends JFrame {
 		setSize(WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setBackground(theColor);
-		setLayout(new BorderLayout());
-		JPanel panel_top = new JPanel();
-		panel_top.setSize(230, 100);
-		add(panel_top, BorderLayout.NORTH);
+		setLayout(new GridLayout(2,1));
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(new GridLayout(2,1));
+			JPanel panel_1_1 = new JPanel();
+			JPanel panel_1_2 = new JPanel();
+			panel_1_2.setLayout(new GridLayout(2,1));
+				JPanel panel_1_2_1 = new JPanel();
+				panel_1_2_1.setLayout(new GridLayout(1,5));
+				JPanel panel_1_2_2 = new JPanel();
+				Monster a = new Monster(), b = new Monster(), c = new Monster(), d = new Monster(), e = new Monster();
+				Health hp = new Health(a, b, c, d, e);
+				panel_1_2_2.add(new JLabel(String.valueOf(hp.getHP())));
+			panel_1_2.add(panel_1_2_1);
+			panel_1_2.add(panel_1_2_2);
+		panel_1.add(panel_1_1);
+		add(panel_1);
 		
-		JPanel panel_center = new JPanel();
-		Monster a = new Monster(), b = new Monster(), c = new Monster(), d = new Monster(), e = new Monster();
-		Health hp = new Health(a, b, c, d, e);
-		panel_center.add(new JLabel(String.valueOf(hp.getHP())));
-		//panel_center.add(new JLabel("hello"));
-		panel_center.setSize(230, 10);
-		add(panel_center, BorderLayout.CENTER);
-		
-		JPanel panel_down = new JPanel();
+		JPanel panel_2 = new JPanel();
 		//panel_down.setBounds(110, 0, 230, 300);
-		panel_down.setLayout(new GridLayout(5, 6));
+		panel_2.setLayout(new GridLayout(5, 6));
 		JLabel label = null;
 		
 		//panel_down.setBounds(0, 230, 320, 250);
@@ -38,13 +42,13 @@ public class Window extends JFrame {
 				label = new JLabel();
 				label.setOpaque(true);
 				label.setIcon(new ImageIcon("juju/" + main_panel.panel[j][(4-i)].getAttr().toString() + ".png"));
-				panel_down.add(label);
+				panel_2.add(label);
 			}
 		}
-		panel_down.addMouseListener(new PanelListener(main_panel));
-		panel_down.addMouseMotionListener(new PanelMouseMotionListener());
+		panel_2.addMouseListener(new PanelListener(main_panel));
+		panel_2.addMouseMotionListener(new PanelMouseMotionListener());
 		//panel_down.setSize();
-		add(panel_down, BorderLayout.SOUTH);
+		add(panel_2);
 		
 	}
 	public void swap_juju(Juju j1, Juju j2) {

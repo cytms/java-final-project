@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 
 
 public class Panel {
@@ -21,14 +21,14 @@ public class Panel {
 			}
 		}
 	}
-	public HashMap[] update_juju(){
+	public List<HashMap<JujuType, Integer>> update_juju(){
 		HashMap<JujuType, Integer> counter = new HashMap<JujuType, Integer>();
 		HashMap<JujuType, Integer> num = new HashMap<JujuType, Integer>();
 		for (JujuType e : JujuType.values()) {
 			counter.put(e, 0);
 			counter.put(e, 0);
 		}
-		HashMap[] result = new HashMap[2];
+		List<HashMap<JujuType, Integer>> result = new ArrayList<HashMap<JujuType, Integer>>();
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {
 				if (panel[i][j] == null) {
@@ -67,8 +67,8 @@ public class Panel {
 				}
 			}
 		}
-		result[0] = counter;
-		result[1] = num;
+		result.add(counter);
+		result.add(num);
 		return result;
 	}
 	public void refill(){

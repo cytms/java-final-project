@@ -14,6 +14,7 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 	public boolean isPressed;
 	//private Platform inPanel;
 	private Window inWindow;
+
 	/* Constructors */
 	/** Default constructor */
 	Juju(Window window) {
@@ -86,6 +87,9 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 	public void setRight(int right) {
 		this.right = right;
 	}
+	public void setInWindow(Window inWindow) {
+		this.inWindow = inWindow;
+	}
 	////////////////////////////////////////////////////////////
 	/* (non-Javadoc)
 	 * @see java.lang.Object#clone()
@@ -150,14 +154,27 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 		this.isPressed = false;
 		System.out.println("Juju is released.");
 		List<HashMap<JujuType, Integer>> tmp = inWindow.main_panel.update_juju();
-		//System.out.println(tmp.get(0).get(JujuType.AQUA));
-		//System.out.println(tmp.get(1).get(JujuType.AQUA));
-		//inPanel.refill();
-		Window w = new Window(inWindow.main_panel);
+		
+		System.out.println(tmp);
+		
+		int attack = inWindow.monsters.a.Attack(tmp.get(0).get(JujuType.WOOD),0);
+		attack += inWindow.monsters.b.Attack(tmp.get(0).get(JujuType.AQUA),0);
+		attack += inWindow.monsters.c.Attack(tmp.get(0).get(JujuType.DARK),0);
+		attack += inWindow.monsters.d.Attack(tmp.get(0).get(JujuType.LIGHT),0);
+		attack += inWindow.monsters.e.Attack(tmp.get(0).get(JujuType.FIRE),0);
+		inWindow.monsters.set_totalAttack(attack);
+		
+		inWindow.monsters.set_thisRecover((int)(tmp.get(0).get(JujuType.HEART)*inWindow.monsters.recovery()*0.3));
+//		System.out.println(tmp.get(1).get(JujuType.AQUA));
+		inWindow.main_panel.refill();
+		Window w = new Window(inWindow.main_panel, inWindow.monsters);
 		w.setWindow();
 		w.setVisible(true);
 		this.inWindow.dispose();
 		inWindow.main_panel.release();
+		
+		
+		
 	}
 //end of MouseMotionListener////////////////////////////////////////////////////////////////////		
 }

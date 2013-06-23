@@ -1,7 +1,7 @@
 
 public class Monster {
 	String name = null;
-	private int blood;
+	protected int blood;
 	private int attack_power;
 	private int recover_power;
 	
@@ -75,7 +75,7 @@ public class Monster {
 	
 	public int Attack(int beads_number, int frequency) {//輸入消去的次數以及個數計算攻擊數據
 		
-		return (int) ((beads_number + frequency ) *  this.attack_power * 0.25) ;
+		return (int) ((beads_number + frequency ) *  this.attack_power * 0.4) ;
 	}
 	
 	

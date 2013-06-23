@@ -18,12 +18,17 @@ public class BadMonster extends Monster {
 		return cold_down_now;
 	}
 
-	public void Round_cold_down() {// use get_cold_down() to decide Attack or
+	public int Round_cold_down() {// use get_cold_down() to decide Attack or
 									// not. Round_cold_down last
 		if (cold_down_now > 1)
 			cold_down_now = cold_down_now - 1;
 		else if (cold_down_now == 1)
 			cold_down_now = cold_down;
+		
+		return cold_down_now;//如果等於cold_down代表要發動一次攻擊
 	}
 
+	public void get_damage(int attack) {
+ 		this.blood = this.blood-attack;
+ 	}
 }

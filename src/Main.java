@@ -2,7 +2,7 @@ import java.awt.Color;
 
 
 public abstract class Main {
-
+	
 	/**
 	 * @param args
 	 */

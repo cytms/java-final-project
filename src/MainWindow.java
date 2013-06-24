@@ -21,7 +21,7 @@ public class MainWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main_panel = p;
 		this.monsters = monsters;
-//		monsters.oneRound();
+		//monsters.oneRound();
 	}
 	public void setWindow() {
 		setLayout(new GridLayout(2,1));

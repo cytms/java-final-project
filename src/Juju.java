@@ -153,11 +153,11 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 		
 		System.out.println(tmp);
 		
-		int attack = inWindow.monsters.a.Attack(tmp.get(0).get(JujuType.WOOD),0);
-		attack += inWindow.monsters.b.Attack(tmp.get(0).get(JujuType.AQUA),0);
-		attack += inWindow.monsters.c.Attack(tmp.get(0).get(JujuType.DARK),0);
-		attack += inWindow.monsters.d.Attack(tmp.get(0).get(JujuType.LIGHT),0);
-		attack += inWindow.monsters.e.Attack(tmp.get(0).get(JujuType.FIRE),0);
+		int attack = inWindow.monsters.a.Attack(tmp.get(1).get(JujuType.WOOD),tmp.get(0).get(JujuType.WOOD));
+		attack += inWindow.monsters.b.Attack(tmp.get(1).get(JujuType.AQUA),tmp.get(0).get(JujuType.WOOD));
+		attack += inWindow.monsters.c.Attack(tmp.get(1).get(JujuType.DARK),tmp.get(0).get(JujuType.WOOD));
+		attack += inWindow.monsters.d.Attack(tmp.get(1).get(JujuType.LIGHT),tmp.get(0).get(JujuType.WOOD));
+		attack += inWindow.monsters.e.Attack(tmp.get(1).get(JujuType.FIRE),tmp.get(0).get(JujuType.WOOD));
 		inWindow.monsters.set_totalAttack(attack);
 		
 		inWindow.monsters.set_thisRecover((int)(tmp.get(0).get(JujuType.HEART)*inWindow.monsters.recovery()*0.3));

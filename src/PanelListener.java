@@ -67,7 +67,7 @@ public class PanelListener implements MouseListener {
 			System.out.println(tmp.get(1).get(JujuType.AQUA));
 			p.refill();
 			
-			Window win = new Window(p);
+			Window win = new Window();
 			
 			win.setWindow();
 			win.setVisible(true);

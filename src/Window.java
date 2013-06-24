@@ -64,7 +64,7 @@ public class Window extends JFrame {
 		//panel_2.setBackground(new Color(Integer.valueOf("2E16B1", 16)));
 		//main_panel = new Platform(this);
 		//panel_2.addMouseListener(new PanelListener(this));
-		PanelListener l = new PanelListener(this);
+		//PanelListener l = new PanelListener(this);
 		for (int i = 0; i < 5; i ++) {
 			for (int j = 0; j < 6; j++) {
 				main_panel.panel[j][4-i].removeMouseListener(main_panel.panel[j][4-i]);

@@ -134,7 +134,7 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 		
 		if (rival != null){
 			JujuPosition rpos = inWindow.main_panel.getJujuPosition(rival);
-			System.out.println(pos + " & " + rpos);
+			//System.out.println(pos + " & " + rpos);
 			this.swapJ(rival);
 			rival.isPressed = false;
 			this.isPressed = true;
@@ -143,20 +143,21 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 	public void mouseExited(MouseEvent e){}
 	public void mousePressed(MouseEvent e){
 		this.isPressed = true;
-		System.out.println("Juju is being Held.");
+		//System.out.println("Juju is being Held.");
 	}
-	public void mouseClicked(MouseEvent e){	}
+	public void mouseClicked(MouseEvent e){
+	}
 	public void mouseReleased(MouseEvent e){
 		this.isPressed = false;
 		System.out.println("Juju is released.");
 		List<HashMap<JujuType, Integer>> tmp = inWindow.main_panel.update_juju();
-		//System.out.println(tmp.get(0).get(JujuType.AQUA));
-		//System.out.println(tmp.get(1).get(JujuType.AQUA));
-		//inPanel.refill();
+		System.out.println(tmp.get(0).get(JujuType.AQUA));
+		System.out.println(tmp.get(1).get(JujuType.AQUA));
+		inWindow.main_panel.refill();
 		Window w = new Window(inWindow.main_panel);
 		w.setWindow();
 		w.setVisible(true);
-		this.inWindow.dispose();
+		inWindow.dispose();
 		inWindow.main_panel.release();
 	}
 //end of MouseMotionListener////////////////////////////////////////////////////////////////////		

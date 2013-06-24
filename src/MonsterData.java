@@ -11,7 +11,7 @@ public class MonsterData {
 	Health hp;
 	
 	 MonsterData(){
-		  Boss = new BadMonster("Chuin", 500, 1800, 3,JujuType.LIGHT, "monster/CHUIN.jpg", 4);
+		  Boss = new BadMonster("Chuin", 5000, 1800, 3,JujuType.LIGHT, "monster/CHUIN.jpg", 4);
 		    a  = new Monster("Gumdam", 600, 150, 400, JujuType.WOOD,"monster/GUMDAM.jpg");
 		    b  = new Monster("RockmanX", 1000, 255, 50, JujuType.AQUA,"monster/ROCKMANX.jpg");
 			c  = new Monster("Rockman", 733, 200, 250, JujuType.DARK,"monster/ROXKMAN.jpg");
@@ -62,7 +62,7 @@ public class MonsterData {
  		hp.Recovery(get_thisRecover());
  		System.out.println("recovery"+get_thisRecover());
  		if(Boss.Round_cold_down()==Boss.get_cold_down())
- 		hp.underAttack(Boss.get_attack_power());
+ 			hp.underAttack(Boss.get_attack_power());
  		
  		set_thisRecover(0);
  		System.out.println("Boss CD:"+Boss.get_cold_down_now());

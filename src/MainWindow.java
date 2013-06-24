@@ -24,6 +24,7 @@ public class MainWindow extends JFrame {
 		//monsters.oneRound();
 	}
 	public void setWindow() {
+		/* create panels */
 		setLayout(new GridLayout(2,1));
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(new GridLayout(2,1));
@@ -37,7 +38,7 @@ public class MainWindow extends JFrame {
 		panel_1_2_1.setLayout(new GridLayout(1,5));
 		panel_1_2_1.setBackground(new Color(Integer.valueOf("3D9200", 16)));
 		JPanel panel_1_2_2 = new JPanel();
-
+		/* set monsters */
 		JLabel Mlabel = null;
 		String[] name = { monsters.a.name, monsters.b.name, monsters.c.name, monsters.d.name, monsters.e.name };
 		for (int i = 0; i < 5; i++) {
@@ -45,14 +46,19 @@ public class MainWindow extends JFrame {
 			Mlabel.setIcon(new ImageIcon("monster/" + name[i] + ".png"));
 			panel_1_2_1.add(Mlabel);
 		}
-
+		/* set boss monster */
 		Mlabel = new JLabel();
 		Mlabel.setIcon(new ImageIcon("monster/" + monsters.Boss.name + ".png"));
 		panel_1_1.add(Mlabel);
-		JLabel HPlabel = new JLabel(String.valueOf(monsters.get_hp()));
-		HPlabel.setFont(new Font("", Font.BOLD, 30));
+		/* set hp, cd labels */
+		JLabel HPlabel = new JLabel("HP: " + String.valueOf(monsters.get_hp()));
+		JLabel BossHPlabel = new JLabel("Enemy HP: "+ String.valueOf(monsters.Boss.get_blood()));
+		JLabel BossCDlabel = new JLabel("/ CD: " + String.valueOf(monsters.Boss.get_cold_down_now()));
+		Font f = new Font("", Font.BOLD, 30);
+		HPlabel.setFont(f); BossHPlabel.setFont(f); BossCDlabel.setFont(f);
 		panel_1_2_2.setBackground(new Color(Integer.valueOf("E40045", 16)));
 		panel_1_2_2.add(HPlabel);
+		panel_1_2_0.add(BossHPlabel); panel_1_2_0.add(BossCDlabel, -1);
 		panel_1_2.add(panel_1_2_0);
 		panel_1_2.add(panel_1_2_1);
 		panel_1_2.add(panel_1_2_2);
@@ -61,27 +67,22 @@ public class MainWindow extends JFrame {
 		add(panel_1);
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(new GridLayout(5, 6));
-		//panel_2.setBackground(new Color(Integer.valueOf("2E16B1", 16)));
-		//main_panel = new Platform(this);
-		//panel_2.addMouseListener(new PanelListener(this));
-		//PanelListener l = new PanelListener(this);
+		/* remove each of the jujus' MouseListener of the previous state */
 		for (int i = 0; i < 5; i ++) {
 			for (int j = 0; j < 6; j++) {
 				main_panel.panel[j][4-i].removeMouseListener(main_panel.panel[j][4-i]);
 			}
 		}
 		
+		/* set 6x5 Jujus and their MouseListener */
 		for (int i = 0; i < 5; i ++) {
 			for (int j = 0; j < 6; j++) {
 				//main_panel.panel[j][4-i].setInWindow(this);
 				main_panel.panel[j][4-i].addMouseListener(main_panel.panel[j][4-i]);
 				main_panel.panel[j][4-i].setBackground(new Color(Integer.valueOf("960028", 16)));
-				//main_panel.panel[j][4-i].addMouseListener(new PanelListener(this, main_panel.panel[j][4-1], token));
 				panel_2.add(main_panel.panel[j][4-i]); 
 			}
 		}
-		//panel_2.addMouseListener(new PanelListener(this));
-		//panel_2.addMouseMotionListener(new PanelMouseMotionListener());
 		add(panel_2);
 	}
 

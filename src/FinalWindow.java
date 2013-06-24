@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+/** the game result window
+ *  with two endings: winning or losing
+ * @author cytms
+ */
 
 public class FinalWindow extends JFrame {
 	public static final int WIDTH = 380;
@@ -25,12 +29,9 @@ public class FinalWindow extends JFrame {
 			label_img = new JLabel("");
 			label_img.setIcon(new ImageIcon("gg.png"));
 		}
-		//label.setAlignmentX(100f);
 		label.setFont(new Font("", Font.BOLD, 30));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label_img.setHorizontalAlignment(SwingConstants.CENTER);
-//		add(null, BorderLayout.EAST);
-//		add(null, BorderLayout.WEST);
 		add(label, BorderLayout.NORTH);
 		add(label_img, BorderLayout.CENTER);
 		

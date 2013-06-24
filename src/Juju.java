@@ -4,12 +4,15 @@ import javax.swing.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
-
+/** class Juju
+ * extends Draggable, implements MouseListener, MouseMotionListener
+ * 
+ */
 public class Juju extends Draggable implements MouseListener, MouseMotionListener{
 	private JujuType attr = null;
 	private int down = 0;
 	private int left = 0;
-	public boolean isPressed;
+	public boolean isPressed; /* if the Juju is being held by mouse */
 	//private Platform inPanel;
 	private MainWindow inWindow;
 
@@ -17,17 +20,13 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 	/** Default constructor */
 	Juju(MainWindow window) {
 		Random random = new Random();
-//		label = new Draggable();
 		setAttr(JujuType.values()[random.nextInt(6)]);
-		//inPanel = window.main_panel;
 		inWindow = window;
 	}
 	/** copy constructor */
 	Juju(Juju j){
-//		this.label = new Draggable();
 		setAttr(j.getAttr());
 		this.isPressed = j.isPressed;
-		//this.inPanel = j.inPanel;
 		this.inWindow = j.inWindow;
 	}
 	Juju(boolean dump) {
@@ -57,11 +56,7 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 		setOpaque(true);
 		if (attr!= null)
 			setIcon(new ImageIcon("juju/" + attr.toString() + ".png"));
-//		label.setText(getAttr().toString());
 	}
-	//public void setPanel(Platform pan){
-		//inPanel = pan;
-	//}
 
 	public int getDown() {
 		return down;
@@ -104,7 +99,6 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 		setAttr(j.getAttr());
 		this.isPressed = j.isPressed;
 		this.inWindow = j.inWindow;
-		//this.inPanel = j.inPanel;
 		this.setIcon(new ImageIcon("juju/" + attr.toString() + ".png"));
 	}
 //////////////////////////////////////////////////////////////////////////////
@@ -115,6 +109,10 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 //////////////////////////////////////////////////////////////////////////////
 //MouseListener///////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
+	/** 
+	 * when mouse entered, detect whether its neighbor is being dragged and approaching to this Juju
+	 * if true, then swith the position(by swapping their attributes) of two Jujus
+	 */
 	public void mouseEntered(MouseEvent e){
 		JujuPosition pos = inWindow.main_panel.getJujuPosition(this);
 		Juju rival = null;
@@ -142,10 +140,13 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 	public void mouseExited(MouseEvent e){}
 	public void mousePressed(MouseEvent e){
 		this.isPressed = true;
-		//System.out.println("Juju is being Held.");
 	}
-	public void mouseClicked(MouseEvent e){
-	}
+	public void mouseClicked(MouseEvent e){}
+	
+	/** when mouse released from a Juju,
+	 * update Juju, refill and make monsters attack
+	 * result would be finishing the game(win/lose) or continuing(both self hp and boss hp still are > 0)
+	 */
 	public void mouseReleased(MouseEvent e){
 		this.isPressed = false;
 		System.out.println("Juju is released.");

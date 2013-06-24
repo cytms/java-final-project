@@ -7,16 +7,16 @@ import java.util.List;
 
 public class PanelListener implements MouseListener {
 	public Platform p = null;
-	public Window w = null;
+	public MainWindow w = null;
 	Juju in;
 	Juju ref;
 	
-	public PanelListener(Window window,Juju inJuju, Juju token) {
+	public PanelListener(MainWindow window,Juju inJuju, Juju token) {
 		this(window);
 		in = inJuju;
 		ref = token;
 	}
-	public PanelListener(Window window) {
+	public PanelListener(MainWindow window) {
 		p = window.main_panel;
 		w = window;
 	}
@@ -67,7 +67,7 @@ public class PanelListener implements MouseListener {
 			System.out.println(tmp.get(1).get(JujuType.AQUA));
 			p.refill();
 			
-			Window win = new Window();
+			MainWindow win = new MainWindow();
 			
 			win.setWindow();
 			win.setVisible(true);

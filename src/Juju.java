@@ -9,15 +9,13 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 	private JujuType attr = null;
 	private int down = 0;
 	private int left = 0;
-	
-	private int right = 0;
 	public boolean isPressed;
 	//private Platform inPanel;
-	private Window inWindow;
+	private MainWindow inWindow;
 
 	/* Constructors */
 	/** Default constructor */
-	Juju(Window window) {
+	Juju(MainWindow window) {
 		Random random = new Random();
 //		label = new Draggable();
 		setAttr(JujuType.values()[random.nextInt(6)]);
@@ -35,7 +33,7 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 	Juju(boolean dump) {
 	}
 
-	Juju(Juju DOWN, Juju LEFT, Window window) {
+	Juju(Juju DOWN, Juju LEFT, MainWindow window) {
 		this(window);
 		Random random = new Random();
 		setAttr(JujuType.values()[random.nextInt(6)]);
@@ -80,15 +78,12 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 	public void setLeft(int left) {
 		this.left = left;
 	}
-	public int getRight() {
-		return right;
-	}
 
-	public void setRight(int right) {
-		this.right = right;
-	}
-	public void setInWindow(Window inWindow) {
+	public void setInWindow(MainWindow inWindow) {
 		this.inWindow = inWindow;
+	}
+	public MainWindow getInWindow() {
+		return inWindow;
 	}
 	////////////////////////////////////////////////////////////
 	/* (non-Javadoc)
@@ -166,13 +161,27 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 		inWindow.monsters.set_totalAttack(attack);
 		
 		inWindow.monsters.set_thisRecover((int)(tmp.get(0).get(JujuType.HEART)*inWindow.monsters.recovery()*0.3));
-//		System.out.println(tmp.get(1).get(JujuType.AQUA));
-		inWindow.main_panel.refill();
-		Window w = new Window(inWindow.main_panel, inWindow.monsters);
-		w.setWindow();
-		w.setVisible(true);
+		System.out.println("HP = " + inWindow.monsters.get_hp() + "; boss = " + inWindow.monsters.Boss.blood);
+		inWindow.monsters.oneRound();
+		if (inWindow.monsters.get_hp() < 0) {
+			FinalWindow w = new FinalWindow(false);
+			w.setVisible(true);
+		}
+		else if (inWindow.monsters.Boss.blood < 0) {
+			FinalWindow w = new FinalWindow(true);
+			System.out.println("you r the winner!");
+			w.setVisible(true);
+		}
+		else {
+			//		System.out.println(tmp.get(1).get(JujuType.AQUA));
+			inWindow.main_panel.refill();
+			MainWindow w = new MainWindow(inWindow.main_panel, inWindow.monsters);
+			w.setWindow();
+			w.setVisible(true);
+		}
 		inWindow.dispose();
 		inWindow.main_panel.release();
+		
 		
 		
 		

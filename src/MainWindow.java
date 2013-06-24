@@ -2,26 +2,26 @@ import java.awt.*;
 import javax.swing.*;
 
 
-public class Window extends JFrame {
+public class MainWindow extends JFrame {
 	public static final int WIDTH = 380;
 	public static final int HEIGHT = 580;
 	public Platform main_panel;
 	public MonsterData monsters;
 	
-	public Window() {
+	public MainWindow() {
 		super("Tower of Hanoi");
 		setSize(WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main_panel = new Platform(this);
 		monsters = new MonsterData();
 	}
-	public Window(Platform p , MonsterData monsters) {
+	public MainWindow(Platform p , MonsterData monsters) {
 		super("Tower of Hanoi");
 		setSize(WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		main_panel = p;
 		this.monsters = monsters;
-		monsters.oneRound();
+//		monsters.oneRound();
 	}
 	public void setWindow() {
 		setLayout(new GridLayout(2,1));
@@ -70,6 +70,7 @@ public class Window extends JFrame {
 				main_panel.panel[j][4-i].removeMouseListener(main_panel.panel[j][4-i]);
 			}
 		}
+		
 		for (int i = 0; i < 5; i ++) {
 			for (int j = 0; j < 6; j++) {
 				//main_panel.panel[j][4-i].setInWindow(this);

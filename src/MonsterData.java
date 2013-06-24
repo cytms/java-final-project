@@ -11,7 +11,7 @@ public class MonsterData {
 	Health hp;
 	
 	 MonsterData(){
-		  Boss = new BadMonster("Chuin", 5000000, 1800, 3,JujuType.LIGHT, "monster/CHUIN.jpg", 4);
+		  Boss = new BadMonster("Chuin", 500, 1800, 3,JujuType.LIGHT, "monster/CHUIN.jpg", 4);
 		    a  = new Monster("Gumdam", 600, 150, 400, JujuType.WOOD,"monster/GUMDAM.jpg");
 		    b  = new Monster("RockmanX", 1000, 255, 50, JujuType.AQUA,"monster/ROCKMANX.jpg");
 			c  = new Monster("Rockman", 733, 200, 250, JujuType.DARK,"monster/ROXKMAN.jpg");

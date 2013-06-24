@@ -7,14 +7,14 @@ import java.util.Random;
 public class Platform {
 	public final int WIDTH = 6;
 	public final int HEIGHT = 5;
-	Window w;
+	MainWindow w;
 
 	Juju[][] panel = new Juju[WIDTH][HEIGHT];
 	/* constructor 
 	 * random generation
 	 * 銝�����
 	 */
-	public Platform(Window w) {
+	public Platform(MainWindow w) {
 		//銝�����
 		this.w = w;
 		for (int i = 0; i < WIDTH; i++) {

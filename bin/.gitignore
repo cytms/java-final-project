@@ -1,7 +1,4 @@
-/.DS_Store
-/Platform.class
-/Main.class
-/Juju.class
-/Draggable.class
-/JujuPosition.class
-/Monsterdata
+/MonsterData.class
+/BadMonster.class
+/Health.class
+/Monster.class

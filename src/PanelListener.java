@@ -76,8 +76,7 @@ public class PanelListener implements MouseListener {
 			//this.w.removeAll();
 						
 		//}
-		//this.w.removeAll();
-		
+		//this.w.removeAll();		
 		//int counter = (Integer) tmp[0].get(JujuType.AQUA);
 		//int num = (Integer) tmp[1].get(JujuType.AQUA);
 		

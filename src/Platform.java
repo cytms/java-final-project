@@ -12,10 +12,10 @@ public class Platform {
 	Juju[][] panel = new Juju[WIDTH][HEIGHT];
 	/* constructor 
 	 * random generation
-	 * 不能有三連珠
+	 * 銝�����
 	 */
 	public Platform(Window w) {
-		//不能有三連珠
+		//銝�����
 		this.w = w;
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {
@@ -38,9 +38,13 @@ public class Platform {
 			for (int j = HEIGHT-1; j >= 0; j--) {
 				//System.out.println("i = " + i + "; j = " + j);
 				if (panel[i][j].getDown() >= 2) {
-					counter.put(panel[i][j-1].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
-					counter.put(panel[i][j-1].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getDown() + 1);
-					//System.out.println("get down = " + (j-panel[i][j].getDown()));
+
+					//if (panel[i][j].getAttr()!=null) {
+						counter.put(panel[i][j-1].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
+						num.put(panel[i][j-1].getAttr(), num.get(panel[i][j].getAttr()) + panel[i][j].getDown() + 1);
+					//}
+					System.out.println("get down = " + (j-panel[i][j].getDown()));
+
 					int tmp = panel[i][j].getDown();
 					for (int down = j; down >= (j - tmp); down--) {
 						//System.out.println("down counter = " + down);
@@ -51,9 +55,11 @@ public class Platform {
 					}
 				} 
 				if (panel[i][j].getLeft() >= 2) {
+
 					counter.put(panel[i-1][j].getAttr(), counter.get(panel[i][j].getAttr()) + 1);
-					counter.put(panel[i-1][j].getAttr(), counter.get(panel[i][j].getAttr()) + panel[i][j].getLeft() + 1);
-					//System.out.println("get left = " + (i -panel[i][j].getLeft()));
+					num.put(panel[i-1][j].getAttr(), num.get(panel[i][j].getAttr()) + panel[i][j].getLeft() + 1);
+					System.out.println("get left = " + (i -panel[i][j].getLeft()));
+
 					int tmp = panel[i][j].getLeft();
 					for (int left = i; left >= (i - tmp); left--) {
 						//System.out.println("left counter = " + left);

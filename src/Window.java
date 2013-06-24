@@ -72,7 +72,7 @@ public class Window extends JFrame {
 		}
 		for (int i = 0; i < 5; i ++) {
 			for (int j = 0; j < 6; j++) {
-				main_panel.panel[j][4-i].setInWindow(this);
+				//main_panel.panel[j][4-i].setInWindow(this);
 				main_panel.panel[j][4-i].addMouseListener(main_panel.panel[j][4-i]);
 				main_panel.panel[j][4-i].setBackground(new Color(Integer.valueOf("960028", 16)));
 				//main_panel.panel[j][4-i].addMouseListener(new PanelListener(this, main_panel.panel[j][4-1], token));

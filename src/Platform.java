@@ -5,15 +5,20 @@ import java.util.Random;
 
 
 public class Platform {
-	public final int WIDTH = 6;
-	public final int HEIGHT = 5;
-	MainWindow w;
+	private final int WIDTH = 6;
+	private final int HEIGHT = 5;
+	private MainWindow w;
 
-	Juju[][] panel = new Juju[WIDTH][HEIGHT];
+	private Juju[][] panel = new Juju[WIDTH][HEIGHT];
 	/* constructor 
 	 * random generation
 	 * 銝�����
 	 */
+	
+	public Juju getJuju(int x, int y) {
+		return panel[x][y];
+	}
+	
 	public Platform(MainWindow w) {
 		//銝�����
 		this.w = w;

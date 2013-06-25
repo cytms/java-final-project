@@ -116,17 +116,17 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 	public void mouseEntered(MouseEvent e){
 		JujuPosition pos = inWindow.main_panel.getJujuPosition(this);
 		Juju rival = null;
-		if(pos.getX()-1 >= 0 && inWindow.main_panel.panel[pos.getX()-1][pos.getY()].isPressed){			
-			rival = inWindow.main_panel.panel[pos.getX()-1][pos.getY()];
+		if(pos.getX()-1 >= 0 && inWindow.main_panel.getJuju(pos.getX()-1, pos.getY()).isPressed){			
+			rival = inWindow.main_panel.getJuju(pos.getX()-1, pos.getY());
 		}
-		else if(pos.getX()+1 < 6 && inWindow.main_panel.panel[pos.getX()+1][pos.getY()].isPressed){
-			rival = inWindow.main_panel.panel[pos.getX()+1][pos.getY()];
+		else if(pos.getX()+1 < 6 && inWindow.main_panel.getJuju(pos.getX()+1, pos.getY()).isPressed){
+			rival = inWindow.main_panel.getJuju(pos.getX()+1, pos.getY());
 		}
-		else if(pos.getY()-1 >= 0 && inWindow.main_panel.panel[pos.getX()][pos.getY()-1].isPressed){
-			rival = inWindow.main_panel.panel[pos.getX()][pos.getY()-1];
+		else if(pos.getY()-1 >= 0 && inWindow.main_panel.getJuju(pos.getX(), pos.getY()-1).isPressed){
+			rival = inWindow.main_panel.getJuju(pos.getX(), pos.getY()-1);
 		}
-		else if(pos.getY()+1 < 5 && inWindow.main_panel.panel[pos.getX()][pos.getY()+1].isPressed){
-			rival = inWindow.main_panel.panel[pos.getX()][pos.getY()+1];
+		else if(pos.getY()+1 < 5 && inWindow.main_panel.getJuju(pos.getX(), pos.getY()+1).isPressed){
+			rival = inWindow.main_panel.getJuju(pos.getX(), pos.getY()+1);
 		}
 		
 		if (rival != null){

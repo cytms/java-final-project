@@ -12,8 +12,8 @@ import javax.swing.SwingConstants;
  */
 
 public class FinalWindow extends JFrame {
-	public static final int WIDTH = 380;
-	public static final int HEIGHT = 580;
+	private static final int WIDTH = 380;
+	private static final int HEIGHT = 580;
 	public FinalWindow(boolean isWin) {
 		super("Tower of Hanoi");
 		setSize(WIDTH, HEIGHT);

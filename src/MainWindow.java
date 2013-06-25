@@ -3,8 +3,8 @@ import javax.swing.*;
 
 
 public class MainWindow extends JFrame {
-	public static final int WIDTH = 380;
-	public static final int HEIGHT = 580;
+	private static final int WIDTH = 380;
+	private static final int HEIGHT = 580;
 	public Platform main_panel;
 	public MonsterData monsters;
 	
@@ -70,7 +70,7 @@ public class MainWindow extends JFrame {
 		/* remove each of the jujus' MouseListener of the previous state */
 		for (int i = 0; i < 5; i ++) {
 			for (int j = 0; j < 6; j++) {
-				main_panel.panel[j][4-i].removeMouseListener(main_panel.panel[j][4-i]);
+				main_panel.getJuju(j, 4-i).removeMouseListener(main_panel.getJuju(j, 4-i));
 			}
 		}
 		
@@ -78,9 +78,9 @@ public class MainWindow extends JFrame {
 		for (int i = 0; i < 5; i ++) {
 			for (int j = 0; j < 6; j++) {
 				//main_panel.panel[j][4-i].setInWindow(this);
-				main_panel.panel[j][4-i].addMouseListener(main_panel.panel[j][4-i]);
-				main_panel.panel[j][4-i].setBackground(new Color(Integer.valueOf("960028", 16)));
-				panel_2.add(main_panel.panel[j][4-i]); 
+				main_panel.getJuju(j, 4-i).addMouseListener(main_panel.getJuju(j, 4-i));
+				main_panel.getJuju(j, 4-i).setBackground(new Color(Integer.valueOf("960028", 16)));
+				panel_2.add(main_panel.getJuju(j, 4-i)); 
 			}
 		}
 		add(panel_2);

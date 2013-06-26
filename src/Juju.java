@@ -164,6 +164,18 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 		inWindow.monsters.set_thisRecover((int)(tmp.get(0).get(JujuType.HEART)*inWindow.monsters.recovery()*0.3));
 		System.out.println("HP = " + inWindow.monsters.get_hp() + "; boss = " + inWindow.monsters.Boss.blood);
 		inWindow.monsters.oneRound();
+		
+		inWindow.main_panel.refill();
+//		MainWindow w = new MainWindow(inWindow.main_panel, inWindow.monsters);
+//		 w.setWindow();
+//		w.setVisible(true);
+		//inWindow.setWindow();
+		inWindow.BossHPlabel.setText(inWindow.monsters.Boss.toString());
+		inWindow.BossHPlabel.setVisible(true);
+		inWindow.HPlabel.setText("HP: " + String.valueOf(inWindow.monsters.get_hp()));
+		inWindow.HPlabel.setVisible(true);
+		inWindow.setVisible(true);
+		
 		if (inWindow.monsters.get_hp() < 0) {
 			FinalWindow w = new FinalWindow(false);
 			w.setVisible(true);
@@ -173,14 +185,8 @@ public class Juju extends Draggable implements MouseListener, MouseMotionListene
 			System.out.println("you r the winner!");
 			w.setVisible(true);
 		}
-		else {
-			//		System.out.println(tmp.get(1).get(JujuType.AQUA));
-			inWindow.main_panel.refill();
-			MainWindow w = new MainWindow(inWindow.main_panel, inWindow.monsters);
-			w.setWindow();
-			w.setVisible(true);
-		}
-		inWindow.dispose();
+		
+		//inWindow.dispose();
 		inWindow.main_panel.release();
 		
 		

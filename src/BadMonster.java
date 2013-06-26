@@ -25,10 +25,13 @@ public class BadMonster extends Monster {
 		else if (cold_down_now == 1)
 			cold_down_now = cold_down;
 		
-		return cold_down_now;//¦pªGµ¥©ócold_down¥Nªí­nµo°Ê¤@¦¸§ðÀ»
+		return cold_down_now;//ï¿½pï¿½Gï¿½ï¿½ï¿½ï¿½cold_downï¿½Nï¿½ï¿½nï¿½oï¿½Ê¤@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 
 	public void get_damage(int attack) {
  		this.blood = this.blood-attack;
  	}
+	public String toString() {
+		return ("Enemy HP: "+ get_blood() + "/ CD: " + get_cold_down_now());
+	}
 }

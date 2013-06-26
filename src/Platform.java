@@ -27,6 +27,7 @@ public class Platform {
 				set_juju(i, j);
 				while(panel[i][j].getDown() == 2 || panel[i][j].getLeft() == 2)
 					set_juju(i,j);
+				//w.setWindow();
 			}
 		}
 	}

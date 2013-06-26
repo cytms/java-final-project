@@ -7,7 +7,8 @@ public class MainWindow extends JFrame {
 	private static final int HEIGHT = 580;
 	public Platform main_panel;
 	public MonsterData monsters;
-	
+	public JLabel BossHPlabel = null;
+	public JLabel HPlabel = null;
 	public MainWindow() {
 		super("Tower of Hanoi");
 		setSize(WIDTH, HEIGHT);
@@ -51,14 +52,13 @@ public class MainWindow extends JFrame {
 		Mlabel.setIcon(new ImageIcon("monster/" + monsters.Boss.name + ".png"));
 		panel_1_1.add(Mlabel);
 		/* set hp, cd labels */
-		JLabel HPlabel = new JLabel("HP: " + String.valueOf(monsters.get_hp()));
-		JLabel BossHPlabel = new JLabel("Enemy HP: "+ String.valueOf(monsters.Boss.get_blood()));
-		JLabel BossCDlabel = new JLabel("/ CD: " + String.valueOf(monsters.Boss.get_cold_down_now()));
+		HPlabel = new JLabel("HP: " + String.valueOf(monsters.get_hp()));
+		BossHPlabel = new JLabel(monsters.Boss.toString());
 		Font f = new Font("", Font.BOLD, 30);
-		HPlabel.setFont(f); BossHPlabel.setFont(f); BossCDlabel.setFont(f);
+		HPlabel.setFont(f); BossHPlabel.setFont(f);
 		panel_1_2_2.setBackground(new Color(Integer.valueOf("E40045", 16)));
 		panel_1_2_2.add(HPlabel);
-		panel_1_2_0.add(BossHPlabel); panel_1_2_0.add(BossCDlabel, -1);
+		panel_1_2_0.add(BossHPlabel);
 		panel_1_2.add(panel_1_2_0);
 		panel_1_2.add(panel_1_2_1);
 		panel_1_2.add(panel_1_2_2);

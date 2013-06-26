@@ -1,7 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
 
-
 public class MainWindow extends JFrame {
 	private static final int WIDTH = 380;
 	private static final int HEIGHT = 580;
@@ -85,5 +84,4 @@ public class MainWindow extends JFrame {
 		}
 		add(panel_2);
 	}
-
 }
